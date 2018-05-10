@@ -4,7 +4,7 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.06
-Release  : 21
+Release  : 22
 URL      : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Message-6.06.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/HTTP-Message-6.06.tar.gz
 Summary  : HTTP style messages

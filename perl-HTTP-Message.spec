@@ -4,13 +4,13 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.18
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 Summary  : 'HTTP style message (base class)'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-HTTP-Message-license
+Requires: perl-HTTP-Message-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Encode::Locale)
 BuildRequires : perl(HTTP::Date)
@@ -29,7 +29,7 @@ version 6.18
 %package dev
 Summary: dev components for the perl-HTTP-Message package.
 Group: Development
-Provides: perl-HTTP-Message-devel
+Provides: perl-HTTP-Message-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-HTTP-Message package.
@@ -68,12 +68,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-HTTP-Message
-cp LICENSE %{buildroot}/usr/share/doc/perl-HTTP-Message/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-HTTP-Message
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -82,16 +82,16 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Config.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Headers.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Headers/Auth.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Headers/ETag.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Headers/Util.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Message.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Request.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Request/Common.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Response.pm
-/usr/lib/perl5/site_perl/5.26.1/HTTP/Status.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Config.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Headers.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Headers/Auth.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Headers/ETag.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Headers/Util.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Message.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Request.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Request/Common.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Response.pm
+/usr/lib/perl5/vendor_perl/5.26.1/HTTP/Status.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -107,5 +107,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/HTTP::Status.3
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-HTTP-Message/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-HTTP-Message/LICENSE

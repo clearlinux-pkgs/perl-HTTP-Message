@@ -4,10 +4,10 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.18
-Release  : 31
+Release  : 32
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
-Summary  : 'HTTP style message (base class)'
+Summary  : HTTP style messages
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-HTTP-Message-license = %{version}-%{release}
@@ -30,6 +30,7 @@ version 6.18
 Summary: dev components for the perl-HTTP-Message package.
 Group: Development
 Provides: perl-HTTP-Message-devel = %{version}-%{release}
+Requires: perl-HTTP-Message = %{version}-%{release}
 
 %description dev
 dev components for the perl-HTTP-Message package.

@@ -4,13 +4,14 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.18
-Release  : 32
+Release  : 33
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
-Summary  : HTTP style messages
+Summary  : 'HTTP style message (base class)'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-HTTP-Message-license = %{version}-%{release}
+Requires: perl-HTTP-Message-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Encode::Locale)
 BuildRequires : perl(HTTP::Date)
@@ -44,14 +45,24 @@ Group: Default
 license components for the perl-HTTP-Message package.
 
 
+%package perl
+Summary: perl components for the perl-HTTP-Message package.
+Group: Default
+Requires: perl-HTTP-Message = %{version}-%{release}
+
+%description perl
+perl components for the perl-HTTP-Message package.
+
+
 %prep
 %setup -q -n HTTP-Message-6.18
+cd %{_builddir}/HTTP-Message-6.18
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -61,7 +72,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -70,7 +81,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-HTTP-Message
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/LICENSE
+cp %{_builddir}/HTTP-Message-6.18/LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/ce15abc341eabcc3c1f7d79a2c30a529aaa129a4
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -83,16 +94,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Config.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Headers.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Headers/Auth.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Headers/ETag.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Headers/Util.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Message.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Request.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Request/Common.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Response.pm
-/usr/lib/perl5/vendor_perl/5.28.2/HTTP/Status.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -109,4 +110,17 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-HTTP-Message/LICENSE
+/usr/share/package-licenses/perl-HTTP-Message/ce15abc341eabcc3c1f7d79a2c30a529aaa129a4
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Config.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/Auth.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/ETag.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/Util.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Message.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Request.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Request/Common.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Response.pm
+/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Status.pm

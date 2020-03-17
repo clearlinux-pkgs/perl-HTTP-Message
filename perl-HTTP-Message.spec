@@ -4,7 +4,7 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.22
-Release  : 34
+Release  : 35
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.22.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.22.tar.gz
 Summary  : 'HTTP style message (base class)'
@@ -114,13 +114,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Config.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/Auth.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/ETag.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Headers/Util.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Message.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Request.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Request/Common.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Response.pm
-/usr/lib/perl5/vendor_perl/5.30.1/HTTP/Status.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Config.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/Auth.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/ETag.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/Util.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Message.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Request.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Request/Common.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Response.pm
+/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Status.pm

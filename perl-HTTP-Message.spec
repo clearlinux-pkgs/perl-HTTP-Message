@@ -4,12 +4,13 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.24
-Release  : 36
+Release  : 37
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.24.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.24.tar.gz
 Summary  : 'HTTP style message (base class)'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-HTTP-Message-license = %{version}-%{release}
 Requires: perl-HTTP-Message-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Clone)
@@ -35,6 +36,14 @@ Requires: perl-HTTP-Message = %{version}-%{release}
 
 %description dev
 dev components for the perl-HTTP-Message package.
+
+
+%package license
+Summary: license components for the perl-HTTP-Message package.
+Group: Default
+
+%description license
+license components for the perl-HTTP-Message package.
 
 
 %package perl
@@ -72,6 +81,8 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-HTTP-Message
+cp %{_builddir}/HTTP-Message-6.24/LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/eeeb3a21464437014b95494ac4a3b662a0541bbb
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -98,15 +109,19 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/HTTP::Response.3
 /usr/share/man/man3/HTTP::Status.3
 
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-HTTP-Message/eeeb3a21464437014b95494ac4a3b662a0541bbb
+
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Config.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/Auth.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/ETag.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Headers/Util.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Message.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Request.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Request/Common.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Response.pm
-/usr/lib/perl5/vendor_perl/5.30.2/HTTP/Status.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Config.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Headers.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Headers/Auth.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Headers/ETag.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Headers/Util.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Message.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Request.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Request/Common.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Response.pm
+/usr/lib/perl5/vendor_perl/5.30.3/HTTP/Status.pm

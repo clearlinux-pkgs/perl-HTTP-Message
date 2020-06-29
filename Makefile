@@ -1,5 +1,5 @@
 PKG_NAME := perl-HTTP-Message
-URL = https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.24.tar.gz
+URL = https://cpan.metacpan.org/authors/id/E/ET/ETHER/HTTP-Message-6.25.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

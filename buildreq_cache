@@ -1,5 +1,4 @@
-6.24
-perl(Clone)
+6.25
 perl(Encode::Locale)
 perl(HTTP::Date)
 perl(IO::HTML)

@@ -1,7 +1,8 @@
-6.28
+6.29
 perl(Encode::Locale)
 perl(HTTP::Date)
 perl(IO::HTML)
 perl(LWP::MediaTypes)
 perl(Try::Tiny)
 perl(URI)
+perl(URI::URL)

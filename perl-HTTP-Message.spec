@@ -115,13 +115,13 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Config.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Headers.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Headers/Auth.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Headers/ETag.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Headers/Util.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Message.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Request.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Request/Common.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Response.pm
-/usr/lib/perl5/vendor_perl/5.32.1/HTTP/Status.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Config.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Headers.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Headers/Auth.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Headers/ETag.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Headers/Util.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Message.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Request.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Request/Common.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Response.pm
+/usr/lib/perl5/vendor_perl/5.34.0/HTTP/Status.pm

@@ -1,5 +1,49 @@
 Revision history for HTTP-Message
 
+6.44      2022-10-26 20:49:00Z
+    - Made the Clone module a hard requirement, so we don't have to
+      provide a fallback function for HTTP::Headers::clone().
+      We require at least Clone 0.46, as that release now supports
+      Perl back to 5.8.1, just like us. (GH#184) (Neil Bowers)
+    - Import clone from Clone rather than inheriting (GH#189) (Graham Knop)
+    - Made the Compress::Raw::Zlib 2.062 module minimal required
+      version. (GH#190) (Jakub 'q84fh' Skory)
+
+6.43      2022-10-22 14:50:35Z
+    - Remove dependency to IO::Uncompress::Bunzip2. (Michal Josef Spacek)
+    - Remove dependency to IO::Uncompress::Gunzip. (Michal Josef Spacek)
+
+6.42      2022-10-18 13:53:22Z
+    - We now don't consider the Content-Location header when asked
+      for the base URI. RFC 7231 says we shouldn't. (GH#51) (Neil Bowers)
+    - Increased the (max) buffer size for read() when processing form data,
+      from 2048 to 8192. This was suggested in RT#105184, as it improved
+      performance for them. (GH#59) (Neil Bowers)
+
+6.41      2022-10-12 15:57:40Z
+    - Add maximum size for HTTP::Message->decoded_content
+      This can be used to limit the size of a decompressed HTTP response,
+      especially when making requests to untrusted or user-specified servers.
+      The $HTTP::Message::MAXIMUM_BODY_SIZE variable and the ->max_body_size
+      accessor can set this limit. (GH#181) (Max Maischein)
+
+6.40      2022-10-12 15:45:52Z
+    - Fixed two typos in the doc, originally reported by FatherC
+      in RT#90716, ported over as GH#57. (GH#57) (Neil Bowers)
+
+6.39      2022-10-08 13:48:26Z
+    - Remove Travis config (GH#180) (Olaf Alders)
+    - Added status_constant_name() which maps status code
+      to the name of the corresponding constant. (GH#160) (Neil Bowers)
+    - Updated the doc for status_message() to clarify that it
+      returns "Not Found" and not "HTTP_NOT_FOUND". (GH#160) (Neil Bowers)
+
+6.38      2022-10-06 21:48:18Z
+    - Replace "base" with "parent" (GH#176) (James Raspass)
+    - Replace "print" with "note" in tests (GH#178) (James Raspass)
+    - Noted that OPTIONS supported was added in 6.1, to the doc
+      for HTTP::Request::Common. Addresses GH#177. (GH#179) (Neil Bowers)
+
 6.37      2022-06-14 14:08:55Z
     - Support for Brotli "br" encoding (GH#163) (trizen and Julien Fiegehenn)
     - Don't test Perl > 5.32 on Windows in GH Actions (GH#174) (Olaf Alders)
@@ -69,6 +113,7 @@ Revision history for HTTP-Message
     - Revert (GH#125) "try hard to make a usable file name" (GH#130) (Olaf
       Alders)
     - Fix JSON request encoding examples in POD (GH#126) (Michael Schout)
+    - Added support for OPTIONS requests.
 
 6.20      2019-02-05 01:46:39Z (TRIAL RELEASE)
     - Fix encoded file names when LC_ALL=C (GH#125) (Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯)

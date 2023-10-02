@@ -4,10 +4,10 @@
 # Using build pattern: cpan
 #
 Name     : perl-HTTP-Message
-Version  : 6.44
-Release  : 60
-URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.44.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.44.tar.gz
+Version  : 6.45
+Release  : 61
+URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
 Summary  : 'HTTP style message (base class)'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -32,7 +32,7 @@ BuildRequires : perl(URI::URL)
 # NAME
 HTTP::Message - HTTP style message (base class)
 # VERSION
-version 6.44
+version 6.45
 # SYNOPSIS
 
 %package dev
@@ -63,8 +63,8 @@ perl components for the perl-HTTP-Message package.
 
 
 %prep
-%setup -q -n HTTP-Message-6.44
-cd %{_builddir}/HTTP-Message-6.44
+%setup -q -n HTTP-Message-6.45
+cd %{_builddir}/HTTP-Message-6.45
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -89,7 +89,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-HTTP-Message
-cp %{_builddir}/HTTP-Message-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/a1d07eb75180e7a1eb584ced7bca9fac428d2f00 || :
+cp %{_builddir}/HTTP-Message-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/perl-HTTP-Message/94e4633cce6dfabd6d1cce9321c2d5365568c677 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -118,7 +118,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-HTTP-Message/a1d07eb75180e7a1eb584ced7bca9fac428d2f00
+/usr/share/package-licenses/perl-HTTP-Message/94e4633cce6dfabd6d1cce9321c2d5365568c677
 
 %files perl
 %defattr(-,root,root,-)

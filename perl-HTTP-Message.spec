@@ -5,7 +5,7 @@
 #
 Name     : perl-HTTP-Message
 Version  : 6.45
-Release  : 61
+Release  : 62
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
 Summary  : 'HTTP style message (base class)'

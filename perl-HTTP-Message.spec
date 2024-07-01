@@ -6,10 +6,10 @@
 # autospec commit: dc0ff31b4314
 #
 Name     : perl-HTTP-Message
-Version  : 6.45
-Release  : 65
-URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.45.tar.gz
+Version  : 6.46
+Release  : 66
+URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.46.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.46.tar.gz
 Summary  : 'HTTP style message (base class)'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -34,7 +34,7 @@ BuildRequires : perl(URI::URL)
 # NAME
 HTTP::Message - HTTP style message (base class)
 # VERSION
-version 6.45
+version 6.46
 # SYNOPSIS
 
 %package dev
@@ -65,8 +65,8 @@ perl components for the perl-HTTP-Message package.
 
 
 %prep
-%setup -q -n HTTP-Message-6.45
-cd %{_builddir}/HTTP-Message-6.45
+%setup -q -n HTTP-Message-6.46
+cd %{_builddir}/HTTP-Message-6.46
 
 %build
 export http_proxy=http://127.0.0.1:9/

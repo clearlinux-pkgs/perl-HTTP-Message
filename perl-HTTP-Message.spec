@@ -7,7 +7,7 @@
 #
 Name     : perl-HTTP-Message
 Version  : 7.00
-Release  : 67
+Release  : 68
 URL      : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-7.00.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-7.00.tar.gz
 Summary  : 'HTTP style message (base class)'
